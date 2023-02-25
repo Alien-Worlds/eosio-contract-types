@@ -1,0 +1,33 @@
+{
+  "name": "eosio-contract-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "format-check": "prettier --check \"src/\"",
+    "format": "prettier --write \"src/\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alien-Worlds/eosio-contract-types.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alien-Worlds/eosio-contract-types/issues"
+  },
+  "homepage": "https://github.com/Alien-Worlds/eosio-contract-types#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
+}
