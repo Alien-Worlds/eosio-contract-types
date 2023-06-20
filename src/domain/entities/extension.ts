@@ -7,7 +7,7 @@ export class Extension {
     return new Extension(type, Bytes.fromStruct(data));
   }
 
-  protected constructor(public readonly type: number, public readonly data: Bytes) { }
+  protected constructor(public readonly type: number, public readonly data: Bytes) {}
 
   public toStruct(): ExtensionStruct {
     const { type, data } = this;

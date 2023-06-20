@@ -8,7 +8,7 @@ export class KeyValuePair<KeyType = string, ValueType = string> {
     return new KeyValuePair(key, value);
   }
 
-  protected constructor(public key: KeyType, public value: ValueType) { }
+  protected constructor(public key: KeyType, public value: ValueType) {}
 
   public toStruct(): KeyValuePairStruct<KeyType, ValueType> {
     const { key, value } = this;
@@ -24,7 +24,7 @@ export class FirstSecondPair<KeyType = string, ValueType = string> {
     return new FirstSecondPair(first, second);
   }
 
-  protected constructor(public key: KeyType, public value: ValueType) { }
+  protected constructor(public key: KeyType, public value: ValueType) {}
 
   public toStruct(): FirstSecondPairStruct<KeyType, ValueType> {
     const { key: first, value: second } = this;

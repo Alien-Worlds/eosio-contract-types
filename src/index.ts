@@ -1,7 +1,2 @@
-import * as cdt from './cdt';
-
-const EosioCommon = {
-    cdt
-};
-
-export default EosioCommon;
+export * as Types from './data';
+export * as Entities from './domain/entities';

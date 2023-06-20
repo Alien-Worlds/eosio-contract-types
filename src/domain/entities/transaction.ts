@@ -40,7 +40,7 @@ export class Transaction {
     public readonly contextFreeActions: Action[],
     public readonly actions: Action[],
     public readonly transactionExtensions: Extension[]
-  ) { }
+  ) {}
 
   public toStruct(): TransactionStruct {
     const {

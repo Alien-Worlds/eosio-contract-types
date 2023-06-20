@@ -19,7 +19,7 @@ export class Action {
     public readonly name: string,
     public readonly authorization: PermissionLevel,
     public readonly data: Bytes
-  ) { }
+  ) {}
 
   public toStruct(): ActionStruct {
     const { account, name, authorization, data } = this;
