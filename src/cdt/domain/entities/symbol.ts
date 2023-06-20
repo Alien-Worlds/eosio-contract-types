@@ -1,4 +1,4 @@
-import { ExtendedSymbolStruct } from '../../data/types';
+import { ExtendedSymbolStruct } from '../../data';
 
 export class Symbol {
   public static fromStruct(value: string): Symbol {
@@ -13,7 +13,7 @@ export class Symbol {
   protected constructor(
     public readonly precision: number,
     public readonly code: string
-  ) {}
+  ) { }
 
   public toStruct(): string {
     const { precision, code } = this;
@@ -30,7 +30,7 @@ export class ExtendedSymbol {
   protected constructor(
     public readonly symbol: Symbol,
     public readonly contract: string
-  ) {}
+  ) { }
 
   public toStruct(): ExtendedSymbolStruct {
     const { symbol, contract } = this;

@@ -1,4 +1,4 @@
-import { ActionStruct } from '../../data/types';
+import { ActionStruct } from '../../data';
 import { Bytes } from './bytes';
 import { PermissionLevel } from './security';
 
@@ -19,7 +19,7 @@ export class Action {
     public readonly name: string,
     public readonly authorization: PermissionLevel,
     public readonly data: Bytes
-  ) {}
+  ) { }
 
   public toStruct(): ActionStruct {
     const { account, name, authorization, data } = this;

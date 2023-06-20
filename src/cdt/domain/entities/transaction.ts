@@ -1,7 +1,7 @@
+import { Action } from './action';
 import { Extension } from './extension';
 import { TimePoint } from './time';
-import { Action } from './action';
-import { TransactionStruct } from '../../data/types';
+import { TransactionStruct } from '../../data';
 
 export class Transaction {
   public static fromStruct(struct: TransactionStruct): Transaction {
@@ -40,7 +40,7 @@ export class Transaction {
     public readonly contextFreeActions: Action[],
     public readonly actions: Action[],
     public readonly transactionExtensions: Extension[]
-  ) {}
+  ) { }
 
   public toStruct(): TransactionStruct {
     const {

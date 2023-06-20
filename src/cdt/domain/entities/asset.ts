@@ -1,4 +1,4 @@
-import { ExtendedAssetStruct } from '../../data/types';
+import { ExtendedAssetStruct } from '../../data';
 import { Symbol } from './symbol';
 
 export class Asset {
@@ -14,7 +14,7 @@ export class Asset {
     return new Asset(BigInt(amount), Symbol.create(decimals, code));
   }
 
-  protected constructor(public readonly amount: bigint, public readonly symbol: Symbol) {}
+  protected constructor(public readonly amount: bigint, public readonly symbol: Symbol) { }
 
   public toStruct(): string {
     const { amount, symbol } = this;
@@ -32,7 +32,7 @@ export class ExtendedAsset {
     return new ExtendedAsset(Asset.fromStruct(quantity), contract);
   }
 
-  protected constructor(public quantity: Asset, public contract: string) {}
+  protected constructor(public quantity: Asset, public contract: string) { }
 
   public toStruct(): ExtendedAssetStruct {
     const { quantity, contract } = this;

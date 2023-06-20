@@ -1,5 +1,5 @@
-import { ExtensionStruct } from '../../data/types';
 import { Bytes } from './bytes';
+import { ExtensionStruct } from '../../data';
 
 export class Extension {
   public static fromStruct(struct: ExtensionStruct): Extension {
@@ -7,7 +7,7 @@ export class Extension {
     return new Extension(type, Bytes.fromStruct(data));
   }
 
-  protected constructor(public readonly type: number, public readonly data: Bytes) {}
+  protected constructor(public readonly type: number, public readonly data: Bytes) { }
 
   public toStruct(): ExtensionStruct {
     const { type, data } = this;

@@ -1,4 +1,4 @@
-import { PermissionLevelStruct } from '../../data/types';
+import { PermissionLevelStruct } from '../../data';
 
 export class PermissionLevel {
   public static fromStruct(struct: PermissionLevelStruct): PermissionLevel {
@@ -9,7 +9,7 @@ export class PermissionLevel {
   protected constructor(
     public readonly actor: string,
     public readonly permission: string
-  ) {}
+  ) { }
 
   public toStruct(): PermissionLevelStruct {
     const { actor, permission } = this;
