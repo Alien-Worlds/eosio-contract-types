@@ -37,8 +37,8 @@ export type FirstSecondPairStruct<First = string, Second = string> = {
   second: Second;
 };
 export type Bool = boolean;
-export type Asset = string;
-export type Symbol = string;
+// export type Asset = string;
+// export type Symbol = string;
 export type Name = string;
 export type Int8 = number;
 export type Int16 = number;
