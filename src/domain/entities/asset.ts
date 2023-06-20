@@ -1,44 +1,80 @@
+import { Entity, UnknownObject, parseToBigInt } from '@alien-worlds/api-core';
+
 import { ExtendedAssetStruct } from '../../data';
 import { Symbol } from './symbol';
 
-export class Asset {
-  public static fromStruct(str: string): Asset {
-    const [value, code] = str.split(/\s+/);
-    const decimals = value.split('.')[1].length || 0;
+/**
+ * Represents a `Asset` object.
+ *
+ * @class
+ */
+export class Asset implements Entity {
+  /**
+   * Constructs a new instance of the `Asset` class.
+   *
+   * @public
+   * @constructor
+   * @param bigint value
+   * @param string symbol
+   * @returns `Asset` - An instance of the `Asset` class.
+   */
+  public constructor(public value: bigint, public symbol: string) {}
 
-    return new Asset(BigInt(value), Symbol.create(decimals, code));
-  }
+  public rest?: UnknownObject;
 
-  public static create(amount: string | number, code: string): Asset {
-    const decimals = amount.toString().split('.')[1].length || 0;
-    return new Asset(BigInt(amount), Symbol.create(decimals, code));
-  }
-
-  protected constructor(public readonly amount: bigint, public readonly symbol: Symbol) {}
-
-  public toStruct(): string {
-    const { amount, symbol } = this;
-    return `${amount.toString()} ${symbol.code}`;
-  }
-}
-
-export class ExtendedAsset {
-  public static fromStruct(struct: ExtendedAssetStruct): ExtendedAsset {
-    const { contract, quantity } = struct;
-    return new ExtendedAsset(Asset.fromStruct(quantity), contract);
-  }
-
-  public static create(quantity: string, contract: string): ExtendedAsset {
-    return new ExtendedAsset(Asset.fromStruct(quantity), contract);
-  }
-
-  protected constructor(public quantity: Asset, public contract: string) {}
-
-  public toStruct(): ExtendedAssetStruct {
-    const { quantity, contract } = this;
+  /**
+   * Converts the current instance of the `Asset` class to a JSON object.
+   *
+   * @public
+   * @returns {UnknownObject} The JSON representation of the instance.
+   */
+  public toJSON(): UnknownObject {
     return {
-      contract,
-      quantity: quantity.toStruct(),
+      value: this.value,
+      symbol: this.symbol,
     };
   }
+
+  /**
+   * Creates an instance of the `Asset` class.
+   *
+   * @static
+   * @public
+   * @returns `Asset` An instance of the `Asset` class.
+   */
+  public static create(
+    value: string | number | bigint,
+    symbol: string,
+    rest?: UnknownObject
+  ): Asset {
+    const entity = new Asset(parseToBigInt(value), symbol);
+    entity.rest = rest;
+
+    return entity;
+  }
+
+  public static getDefault(): Asset {
+    return new Asset(0n, '');
+  }
 }
+
+// export class ExtendedAsset {
+//   public static fromStruct(struct: ExtendedAssetStruct): ExtendedAsset {
+//     const { contract, quantity } = struct;
+//     return new ExtendedAsset(Asset.fromStruct(quantity), contract);
+//   }
+
+//   public static create(quantity: string, contract: string): ExtendedAsset {
+//     return new ExtendedAsset(Asset.fromStruct(quantity), contract);
+//   }
+
+//   protected constructor(public quantity: Asset, public contract: string) {}
+
+//   public toStruct(): ExtendedAssetStruct {
+//     const { quantity, contract } = this;
+//     return {
+//       contract,
+//       quantity: quantity.toStruct(),
+//     };
+//   }
+// }
