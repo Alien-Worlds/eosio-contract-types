@@ -12,7 +12,4 @@ export type AssetMongoModel = {
 /**
  * @typedef {Object} AssetRawModel
  */
-export type AssetRawModel = {
-  data: string;
-  [key: string]: unknown;
-};
+export type AssetRawModel = string;

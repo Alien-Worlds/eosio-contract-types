@@ -34,10 +34,8 @@ export class AssetRawMapper extends MapperImpl<Asset, AssetRawModel> {
   }
 
   public toEntity(rawModel: AssetRawModel): Asset {
-    const { data, ...rest } = rawModel;
+    const [value, symbol] = rawModel.split(/\s+/g);
 
-    const [value, symbol] = data.split(/\s+/g);
-
-    return Asset.create(value ?? 0, symbol ?? '', rest);
+    return Asset.create(value ?? 0, symbol ?? '');
   }
 }
