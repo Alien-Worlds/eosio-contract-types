@@ -1,7 +1,4 @@
-import { Entity, UnknownObject, parseToBigInt } from '@alien-worlds/api-core';
-
-import { ExtendedAssetStruct } from '../../data';
-import { Symbol } from './symbol';
+import { Entity, parseToBigInt, UnknownObject } from '@alien-worlds/api-core';
 
 /**
  * Represents a `Asset` object.
@@ -57,24 +54,3 @@ export class Asset implements Entity {
     return new Asset(0n, '');
   }
 }
-
-// export class ExtendedAsset {
-//   public static fromStruct(struct: ExtendedAssetStruct): ExtendedAsset {
-//     const { contract, quantity } = struct;
-//     return new ExtendedAsset(Asset.fromStruct(quantity), contract);
-//   }
-
-//   public static create(quantity: string, contract: string): ExtendedAsset {
-//     return new ExtendedAsset(Asset.fromStruct(quantity), contract);
-//   }
-
-//   protected constructor(public quantity: Asset, public contract: string) {}
-
-//   public toStruct(): ExtendedAssetStruct {
-//     const { quantity, contract } = this;
-//     return {
-//       contract,
-//       quantity: quantity.toStruct(),
-//     };
-//   }
-// }

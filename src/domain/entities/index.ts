@@ -1,4 +1,5 @@
 export * from './asset';
+export * from './extended-asset';
 export * from './symbol';
 export * from './action';
 export * from './bytes';
