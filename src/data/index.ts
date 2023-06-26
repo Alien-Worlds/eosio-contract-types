@@ -2,10 +2,7 @@ export type ExtensionStruct = {
   type: number;
   data: string;
 };
-export type ExtendedSymbolStruct = {
-  symbol: string;
-  contract: string;
-};
+
 export type ExtendedAssetStruct = {
   contract: string;
   quantity: string;
