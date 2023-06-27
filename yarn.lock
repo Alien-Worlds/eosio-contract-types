@@ -2,22 +2,22 @@
 # yarn lockfile v1
 
 
-"@alien-worlds/api-core@^0.0.138":
-  version "0.0.138"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.138/4cb2b844e6e8e3f2aabd52d6833e224543553300#4cb2b844e6e8e3f2aabd52d6833e224543553300"
-  integrity sha512-5NZ//JB/7vgh33pjcpfOlrSZid0CaZzZnThWbIo4WEHYGi+5kodbvD76SLOpLjS0PG9891bqKaVxYG7ZpPLy6g==
+"@alien-worlds/api-core@^0.0.151":
+  version "0.0.151"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/api-core/0.0.151/90f3fda4958c18a705ee34300f47a46f8a3e4f63#90f3fda4958c18a705ee34300f47a46f8a3e4f63"
+  integrity sha512-EkQjZ34F3srCD97b0TE+Lju05pod5gxPlUnezMV9Bq0R1xp0XLGnbSIqpO6Y2UfIJY7PHpFaHWpce+q2rQs4aA==
   dependencies:
     inversify "^6.0.1"
     nanoid "^3.0.0"
     node-fetch "2"
     reflect-metadata "^0.1.13"
 
-"@alien-worlds/storage-mongodb@^0.0.14":
-  version "0.0.14"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.14/a16846339c1fb7c2886592c96e5b6f735240f46e#a16846339c1fb7c2886592c96e5b6f735240f46e"
-  integrity sha512-hTYZOe5gwz2Yk8IOQbwt+LMp+ksFaCNo8uP8se2vubenv6vMlsCVuz8C+Cbl37Xo0XB7EOiB2MPI55+d1bcO5w==
+"@alien-worlds/storage-mongodb@^0.0.22":
+  version "0.0.22"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.22/d9bc5540f82a16abbfa64ebec22a1732f60b3f35#d9bc5540f82a16abbfa64ebec22a1732f60b3f35"
+  integrity sha512-5bwxRLohvizPuLJXgppzGF7dfDmEQtLHFJCGM+l6CHQ4OOnd4kleO/15379wpI1QVxiYd0ZjGwbBw+JdSeKhQQ==
   dependencies:
-    "@alien-worlds/api-core" "^0.0.138"
+    "@alien-worlds/api-core" "^0.0.151"
     mongodb "4.9.1"
 
 "@eslint/eslintrc@^1.4.1":
