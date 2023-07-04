@@ -13,6 +13,6 @@ export type ExtendedSymbolMongoModel = {
  * @typedef {Object} ExtendedSymbolRawModel
  */
 export type ExtendedSymbolRawModel = {
-  symbol: string;
+  sym: string;
   contract: string;
 };

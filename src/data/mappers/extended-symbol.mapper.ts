@@ -1,9 +1,9 @@
+import { MapperImpl } from '@alien-worlds/api-core';
+
+import { Symbol } from '../../domain/entities';
+import { ExtendedSymbol } from '../../domain/entities/extended-symbol';
 import { ExtendedSymbolMongoModel, ExtendedSymbolRawModel } from '../dtos';
 import { SymbolMongoMapper, SymbolRawMapper } from './symbol.mapper';
-
-import { ExtendedSymbol } from '../../domain/entities/extended-symbol';
-import { MapperImpl } from '@alien-worlds/api-core';
-import { Symbol } from '../../domain/entities';
 
 // Mongo Mappers
 export class ExtendedSymbolMongoMapper extends MapperImpl<
@@ -45,10 +45,10 @@ export class ExtendedSymbolRawMapper extends MapperImpl<
   }
 
   public toEntity(rawModel: ExtendedSymbolRawModel): ExtendedSymbol {
-    const { symbol, contract } = rawModel;
+    const { sym, contract } = rawModel;
 
     return ExtendedSymbol.create(
-      symbol ? new SymbolRawMapper().toEntity(symbol) : Symbol.getDefault(),
+      sym ? new SymbolRawMapper().toEntity(sym) : Symbol.getDefault(),
       contract ?? ''
     );
   }
