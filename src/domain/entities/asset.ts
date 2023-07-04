@@ -1,4 +1,4 @@
-import { Entity, UnknownObject, parseToBigInt } from '@alien-worlds/api-core';
+import { Entity, parseToBigInt, UnknownObject } from '@alien-worlds/api-core';
 
 /**
  * Represents a `Asset` object.
@@ -27,7 +27,7 @@ export class Asset implements Entity {
    */
   public toJSON(): UnknownObject {
     return {
-      value: this.value,
+      value: this.value.toString(),
       symbol: this.symbol,
     };
   }
