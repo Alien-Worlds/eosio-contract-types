@@ -1,8 +1,8 @@
-import { AssetMongoModel, AssetRawModel } from '../dtos/asset';
-
-import { Asset } from '../../domain/entities';
 import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
+
+import { Asset } from '../../domain/entities';
+import { AssetMongoModel, AssetRawModel } from '../dtos/asset';
 
 // Mongo Mappers
 export class AssetMongoMapper extends MapperImpl<Asset, AssetMongoModel> {
@@ -36,6 +36,6 @@ export class AssetRawMapper extends MapperImpl<Asset, AssetRawModel> {
   public toEntity(rawModel: AssetRawModel): Asset {
     const [value, symbol] = rawModel.split(/\s+/g);
 
-    return Asset.create(value ?? 0, symbol ?? '');
+    return Asset.create(Number(value ?? 0), symbol ?? '');
   }
 }

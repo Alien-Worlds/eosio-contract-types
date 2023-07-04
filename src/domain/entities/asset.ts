@@ -1,4 +1,4 @@
-import { Entity, parseToBigInt, UnknownObject } from '@alien-worlds/api-core';
+import { Entity, UnknownObject, parseToBigInt } from '@alien-worlds/api-core';
 
 /**
  * Represents a `Asset` object.
@@ -40,7 +40,7 @@ export class Asset implements Entity {
    * @returns `Asset` An instance of the `Asset` class.
    */
   public static create(
-    value: string | number | bigint,
+    value: number | bigint,
     symbol: string,
     rest?: UnknownObject
   ): Asset {
