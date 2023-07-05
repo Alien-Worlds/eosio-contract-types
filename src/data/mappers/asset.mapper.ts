@@ -1,5 +1,4 @@
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
 
 import { Asset } from '../../domain/entities';
 import { AssetMongoModel, AssetRawModel } from '../dtos/asset';
@@ -11,7 +10,7 @@ export class AssetMongoMapper extends MapperImpl<Asset, AssetMongoModel> {
 
     this.mappingFromEntity.set('value', {
       key: 'value',
-      mapper: (value: bigint) => MongoDB.Long.fromBigInt(value),
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('symbol', {
@@ -23,7 +22,7 @@ export class AssetMongoMapper extends MapperImpl<Asset, AssetMongoModel> {
   public toEntity(mongoModel: AssetMongoModel): Asset {
     const { value, symbol, ...rest } = mongoModel;
 
-    return Asset.create(value.toBigInt() ?? 0, symbol ?? '', rest);
+    return Asset.create(value ?? 0, symbol ?? '', rest);
   }
 }
 

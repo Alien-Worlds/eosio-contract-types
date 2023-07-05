@@ -1,10 +1,8 @@
-import { MongoDB } from '@alien-worlds/storage-mongodb';
-
 /**
  * @typedef {Object} AssetMongoModel
  */
 export type AssetMongoModel = {
-  value?: MongoDB.Long;
+  value?: number;
   symbol?: string;
   [key: string]: unknown;
 };

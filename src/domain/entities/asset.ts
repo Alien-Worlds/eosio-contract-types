@@ -1,4 +1,4 @@
-import { Entity, parseToBigInt, UnknownObject } from '@alien-worlds/api-core';
+import { Entity, UnknownObject } from '@alien-worlds/api-core';
 
 /**
  * Represents a `Asset` object.
@@ -11,11 +11,11 @@ export class Asset implements Entity {
    *
    * @public
    * @constructor
-   * @param bigint value
+   * @param number value
    * @param string symbol
    * @returns `Asset` - An instance of the `Asset` class.
    */
-  public constructor(public value: bigint, public symbol: string) {}
+  public constructor(public value: number, public symbol: string) {}
 
   public rest?: UnknownObject;
 
@@ -27,7 +27,7 @@ export class Asset implements Entity {
    */
   public toJSON(): UnknownObject {
     return {
-      value: this.value.toString(),
+      value: this.value,
       symbol: this.symbol,
     };
   }
@@ -40,17 +40,17 @@ export class Asset implements Entity {
    * @returns `Asset` An instance of the `Asset` class.
    */
   public static create(
-    value: number | bigint,
+    value: number | string,
     symbol: string,
     rest?: UnknownObject
   ): Asset {
-    const entity = new Asset(parseToBigInt(value), symbol);
+    const entity = new Asset(Number(value), symbol);
     entity.rest = rest;
 
     return entity;
   }
 
   public static getDefault(): Asset {
-    return new Asset(0n, '');
+    return new Asset(0, '');
   }
 }
