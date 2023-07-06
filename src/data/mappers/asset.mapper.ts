@@ -29,7 +29,9 @@ export class AssetMongoMapper extends MapperImpl<Asset, AssetMongoModel> {
 // Raw mappers
 export class AssetRawMapper extends MapperImpl<Asset, AssetRawModel> {
   public fromEntity(entity: Asset): AssetRawModel {
-    throw new Error('Method not implemented');
+    const { value, symbol } = entity;
+
+    return `${value.toString()} ${symbol}`;
   }
 
   public toEntity(rawModel: AssetRawModel): Asset {

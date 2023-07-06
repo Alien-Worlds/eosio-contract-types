@@ -26,9 +26,11 @@ export class Asset implements Entity {
    * @returns {UnknownObject} The JSON representation of the instance.
    */
   public toJSON(): UnknownObject {
+    const { value, symbol } = this;
+
     return {
-      value: this.value,
-      symbol: this.symbol,
+      value,
+      symbol,
     };
   }
 
