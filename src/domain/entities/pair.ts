@@ -1,33 +1,28 @@
-import { FirstSecondPairStruct, KeyValuePairStruct } from '../../data';
+import { removeUndefinedProperties } from '@alien-worlds/api-core';
+import { PairModel } from '../../data';
 
-export class KeyValuePair<KeyType = string, ValueType = string> {
-  public static fromStruct<KeyType = string, ValueType = string>(
-    pair: KeyValuePairStruct<KeyType, ValueType>
-  ): KeyValuePair<KeyType, ValueType> {
-    const { key, value } = pair;
-    return new KeyValuePair(key, value);
+export class Pair<KeyType = string, ValueType = string> {
+  public static create<KeyType = string, ValueType = string>(
+    key: KeyType,
+    value: ValueType,
+    first: KeyType,
+    second: ValueType
+  ): Pair<KeyType, ValueType> {
+    //
+    return new Pair(key, value, first, second);
   }
 
-  protected constructor(public key: KeyType, public value: ValueType) {}
+  protected constructor(
+    public readonly key: KeyType,
+    public readonly value: ValueType,
+    public readonly first: KeyType,
+    public readonly second: ValueType
+  ) {}
 
-  public toStruct(): KeyValuePairStruct<KeyType, ValueType> {
-    const { key, value } = this;
-    return { key, value };
-  }
-}
+  public toJSON(): PairModel<KeyType, ValueType> {
+    const { key, value, first, second } = this;
+    const pair = { key, value, first, second };
 
-export class FirstSecondPair<KeyType = string, ValueType = string> {
-  public static fromStruct<KeyType = string, ValueType = string>(
-    pair: FirstSecondPairStruct<KeyType, ValueType>
-  ): FirstSecondPair<KeyType, ValueType> {
-    const { first, second } = pair;
-    return new FirstSecondPair(first, second);
-  }
-
-  protected constructor(public key: KeyType, public value: ValueType) {}
-
-  public toStruct(): FirstSecondPairStruct<KeyType, ValueType> {
-    const { key: first, value: second } = this;
-    return { first, second };
+    return removeUndefinedProperties(pair);
   }
 }

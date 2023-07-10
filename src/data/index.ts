@@ -1,38 +1,3 @@
-export type ExtensionStruct = {
-  type: number;
-  data: string;
-};
-
-export type ExtendedAssetStruct = {
-  contract: string;
-  quantity: string;
-};
-export type PermissionLevelStruct = {
-  actor: string;
-  permission: string;
-};
-export type ActionStruct = {
-  account: string;
-  name: string;
-  authorization: PermissionLevelStruct;
-  data: string;
-};
-export type TransactionStruct = {
-  expiration: string;
-  ref_block_num: number;
-  ref_block_prefix: number;
-  max_net_usage_words: number;
-  max_cpu_usage_ms: number;
-  delay_sec: number;
-  context_free_actions: ActionStruct[];
-  actions: ActionStruct[];
-  transaction_extensions: ExtensionStruct[];
-};
-export type KeyValuePairStruct<Key = string, Value = string> = { key: Key; value: Value };
-export type FirstSecondPairStruct<First = string, Second = string> = {
-  first: First;
-  second: Second;
-};
 export type Bool = boolean;
 // export type Asset = string;
 // export type Symbol = string;

@@ -1,17 +1,22 @@
-import { PermissionLevelStruct } from '../../data';
+import { Entity, UnknownObject } from '@alien-worlds/api-core';
+import { PermissionLevelRawModel } from '../../data';
 
-export class PermissionLevel {
-  public static fromStruct(struct: PermissionLevelStruct): PermissionLevel {
-    const { actor, permission } = struct;
-    return new PermissionLevel(actor, permission);
+export class PermissionLevel implements Entity {
+  public static create(
+    actor: string,
+    permission: string,
+    rest?: UnknownObject
+  ): PermissionLevel {
+    const entity = new PermissionLevel(actor, permission);
+    entity.rest = rest;
+    return entity;
   }
 
-  protected constructor(
-    public readonly actor: string,
-    public readonly permission: string
-  ) {}
+  constructor(public readonly actor: string, public readonly permission: string) {}
 
-  public toStruct(): PermissionLevelStruct {
+  public rest?: UnknownObject;
+
+  public toJSON(): PermissionLevelRawModel {
     const { actor, permission } = this;
     return { actor, permission };
   }

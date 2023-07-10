@@ -1,4 +1,4 @@
-import { AssetMongoModel } from './asset';
+import { AssetMongoModel } from './asset.dto';
 
 /**
  * @typedef {Object} ExtendedAssetMongoModel
@@ -13,6 +13,7 @@ export type ExtendedAssetMongoModel = {
  * @typedef {Object} ExtendedAssetRawModel
  */
 export type ExtendedAssetRawModel = {
-  contract: string;
-  quantity: string;
+  contract?: string;
+  quantity?: string;
+  [key: string]: unknown;
 };

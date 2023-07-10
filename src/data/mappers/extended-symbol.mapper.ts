@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { MapperImpl } from '@alien-worlds/api-core';
 
 import { Symbol } from '../../domain/entities';

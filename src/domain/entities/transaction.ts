@@ -1,11 +1,21 @@
 import { Action } from './action';
 import { Extension } from './extension';
-import { TimePoint } from './time';
-import { TransactionStruct } from '../../data';
+import { TransactionRawModel } from '../../data';
+import { Entity, UnknownObject } from '@alien-worlds/api-core';
 
-export class Transaction {
-  public static fromStruct(struct: TransactionStruct): Transaction {
-    const {
+export class Transaction implements Entity {
+  public static create(
+    expiration: Date,
+    ref_block_num: bigint,
+    ref_block_prefix: number,
+    max_net_usage_words: number,
+    max_cpu_usage_ms: number,
+    delay_sec: number,
+    context_free_actions: Action[],
+    actions: Action[],
+    transaction_extensions: Extension[]
+  ): Transaction {
+    return new Transaction(
       expiration,
       ref_block_num,
       ref_block_prefix,
@@ -14,25 +24,15 @@ export class Transaction {
       delay_sec,
       context_free_actions,
       actions,
-      transaction_extensions,
-    } = struct;
-
-    return new Transaction(
-      TimePoint.fromStruct(expiration),
-      ref_block_num,
-      ref_block_prefix,
-      max_net_usage_words,
-      max_cpu_usage_ms,
-      delay_sec,
-      context_free_actions.map(action => Action.fromStruct(action)),
-      actions.map(action => Action.fromStruct(action)),
-      transaction_extensions.map(extension => Extension.fromStruct(extension))
+      transaction_extensions
     );
   }
 
-  protected constructor(
-    public readonly expiration: TimePoint,
-    public readonly refBlockNumber: number,
+  public rest?: UnknownObject;
+
+  constructor(
+    public readonly expiration: Date,
+    public readonly refBlockNumber: bigint,
     public readonly refBlockPrefix: number,
     public readonly maxNetUsageWords: number,
     public readonly maxCpuUsageMs: number,
@@ -42,7 +42,7 @@ export class Transaction {
     public readonly transactionExtensions: Extension[]
   ) {}
 
-  public toStruct(): TransactionStruct {
+  public toJSON(): TransactionRawModel {
     const {
       expiration,
       refBlockNumber,
@@ -56,17 +56,15 @@ export class Transaction {
     } = this;
 
     return {
-      expiration: expiration.toStruct(),
-      ref_block_num: refBlockNumber,
+      expiration: expiration.toISOString(),
+      ref_block_num: Number(refBlockNumber),
       ref_block_prefix: refBlockPrefix,
       max_net_usage_words: maxNetUsageWords,
       max_cpu_usage_ms: maxCpuUsageMs,
       delay_sec: delaySec,
-      context_free_actions: contextFreeActions.map(action => action.toStruct()),
-      actions: actions.map(action => action.toStruct()),
-      transaction_extensions: transactionExtensions.map(extension =>
-        extension.toStruct()
-      ),
+      context_free_actions: contextFreeActions.map(action => action.toJSON()),
+      actions: actions.map(action => action.toJSON()),
+      transaction_extensions: transactionExtensions.map(extension => extension.toJSON()),
     };
   }
 }

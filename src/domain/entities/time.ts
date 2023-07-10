@@ -1,25 +1,25 @@
 export class TimePoint {
-  public static fromStruct(str: string): TimePoint {
+  public static create(str: string): TimePoint {
     return new TimePoint(new Date(str));
   }
 
-  protected constructor(public readonly date: Date) {}
+  constructor(public readonly date: Date) {}
 
-  public toStruct(): string {
+  public toJSON(): { date: string } {
     const { date } = this;
-    return date.toISOString().replace('Z', '');
+    return { date: date.toISOString().replace('Z', '') };
   }
 }
 
 export class TimePointSec {
-  public static fromStruct(str: string): TimePoint {
+  public static create(str: string): TimePoint {
     return new TimePointSec(new Date(str));
   }
 
-  protected constructor(public readonly date: Date) {}
+  constructor(public readonly date: Date) {}
 
-  public toStruct(): string {
+  public toJSON(): { date: string } {
     const { date } = this;
-    return date.toISOString().split('.')[0];
+    return { date: date.toISOString().split('.')[0] };
   }
 }

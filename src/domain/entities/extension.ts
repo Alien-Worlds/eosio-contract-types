@@ -1,19 +1,23 @@
-import { Bytes } from './bytes';
-import { ExtensionStruct } from '../../data';
+import { Entity, UnknownObject } from '@alien-worlds/api-core';
+import { ExtensionRawModel } from '../../data/dtos/extension.dto';
 
-export class Extension {
-  public static fromStruct(struct: ExtensionStruct): Extension {
-    const { type, data } = struct;
-    return new Extension(type, Bytes.create(data));
+export class Extension implements Entity {
+  public static create(type: number, data: string, rest?: UnknownObject): Extension {
+    const entity = new Extension(type, data);
+    entity.rest = rest;
+
+    return entity;
   }
 
-  protected constructor(public readonly type: number, public readonly data: Bytes) {}
+  public rest?: UnknownObject;
 
-  public toStruct(): ExtensionStruct {
+  constructor(public readonly type: number, public readonly data: string) {}
+
+  public toJSON(): ExtensionRawModel {
     const { type, data } = this;
     return {
       type,
-      data: data.raw,
+      data,
     };
   }
 }

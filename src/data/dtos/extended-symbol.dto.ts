@@ -1,4 +1,4 @@
-import { SymbolMongoModel } from './symbol';
+import { SymbolMongoModel } from './symbol.dto';
 
 /**
  * @typedef {Object} ExtendedSymbolMongoModel
@@ -13,6 +13,7 @@ export type ExtendedSymbolMongoModel = {
  * @typedef {Object} ExtendedSymbolRawModel
  */
 export type ExtendedSymbolRawModel = {
-  sym: string;
-  contract: string;
+  sym?: string;
+  contract?: string;
+  [key: string]: unknown;
 };

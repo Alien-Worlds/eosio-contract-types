@@ -1,4 +1,5 @@
-import { SymbolMongoModel, SymbolRawModel } from '../dtos/symbol';
+/* eslint-disable @typescript-eslint/ban-types */
+import { SymbolMongoModel, SymbolRawModel } from '../dtos/symbol.dto';
 
 import { MapperImpl } from '@alien-worlds/api-core';
 import { Symbol } from '../../domain/entities';
@@ -29,7 +30,7 @@ export class SymbolMongoMapper extends MapperImpl<Symbol, SymbolMongoModel> {
 // Raw mappers
 export class SymbolRawMapper extends MapperImpl<Symbol, SymbolRawModel> {
   public fromEntity(entity: Symbol): SymbolRawModel {
-    const { precision, code, ...rest } = entity;
+    const { precision, code } = entity;
 
     return `${precision},${code}`;
   }
