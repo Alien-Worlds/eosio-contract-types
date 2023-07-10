@@ -4,3 +4,6 @@ export type PairModel<Key = string, Value = string> = {
   first?: Key;
   second?: Value;
 };
+
+export type PairMongoModel = PairModel;
+export type PairRawModel = PairModel;

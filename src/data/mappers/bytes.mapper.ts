@@ -2,25 +2,26 @@ import { MapperImpl } from '@alien-worlds/api-core';
 
 import { Bytes } from '../../domain/entities';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { BytesMongoModel, BytesRawModel } from '../dtos/bytes.dto';
 
 // Mongo Mappers
-export class BytesMongoMapper extends MapperImpl<Bytes, MongoDB.Binary> {
-  public toEntity(mongoModel: MongoDB.Binary): Bytes {
+export class BytesMongoMapper extends MapperImpl<Bytes, BytesMongoModel> {
+  public toEntity(mongoModel: BytesMongoModel): Bytes {
     return Bytes.create(mongoModel.toString());
   }
 
-  public fromEntity(entity: Bytes): MongoDB.Binary {
+  public fromEntity(entity: Bytes): BytesMongoModel {
     return new MongoDB.Binary(entity.data);
   }
 }
 
 // Raw mappers
-export class BytesRawMapper extends MapperImpl<Bytes, string> {
-  public fromEntity(entity: Bytes): string {
+export class BytesRawMapper extends MapperImpl<Bytes, BytesRawModel> {
+  public fromEntity(entity: Bytes): BytesRawModel {
     return entity.raw;
   }
 
-  public toEntity(rawModel: string): Bytes {
+  public toEntity(rawModel: BytesRawModel): Bytes {
     return Bytes.create(rawModel);
   }
 }
