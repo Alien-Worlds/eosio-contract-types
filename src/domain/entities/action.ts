@@ -1,7 +1,7 @@
 import { Entity, UnknownObject } from '@alien-worlds/api-core';
 import { ActionRawModel } from '../../data';
 import { Bytes } from './bytes';
-import { PermissionLevel } from './security';
+import { PermissionLevel } from './permission-level';
 
 export class Action implements Entity {
   public static create(

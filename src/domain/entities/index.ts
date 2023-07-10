@@ -6,6 +6,6 @@ export * from './action';
 export * from './bytes';
 export * from './extension';
 export * from './pair';
-export * from './security';
+export * from './permission-level';
 export * from './time';
 export * from './transaction';
