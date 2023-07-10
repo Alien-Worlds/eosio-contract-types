@@ -4,7 +4,7 @@ import { ExtensionStruct } from '../../data';
 export class Extension {
   public static fromStruct(struct: ExtensionStruct): Extension {
     const { type, data } = struct;
-    return new Extension(type, Bytes.fromStruct(data));
+    return new Extension(type, Bytes.create(data));
   }
 
   protected constructor(public readonly type: number, public readonly data: Bytes) {}
@@ -13,7 +13,7 @@ export class Extension {
     const { type, data } = this;
     return {
       type,
-      data: data.toStruct(),
+      data: data.raw,
     };
   }
 }

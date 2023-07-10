@@ -18,13 +18,21 @@ const hexToUint8Array = hex => {
 };
 
 export class Bytes {
-  public static fromStruct(struct: string): Bytes {
+  public static create(struct: string): Bytes {
     return new Bytes(struct, hexToUint8Array(struct));
   }
 
-  protected constructor(public readonly raw: string, public readonly data: Uint8Array) {}
+  public static getDefault(): Bytes {
+    return new Bytes('', Uint8Array.from([]));
+  }
 
-  public toStruct(): string {
-    return this.raw;
+  constructor(public readonly raw: string, public readonly data: Uint8Array) {}
+
+  public toJSON(): { raw: string; data: number[] } {
+    const { raw, data } = this;
+    return {
+      raw,
+      data: Array.from(data),
+    };
   }
 }

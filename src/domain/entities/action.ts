@@ -10,7 +10,7 @@ export class Action {
       account,
       name,
       PermissionLevel.fromStruct(authorization),
-      Bytes.fromStruct(data)
+      Bytes.create(data)
     );
   }
 
@@ -27,7 +27,7 @@ export class Action {
       account,
       name,
       authorization: authorization.toStruct(),
-      data: data.toStruct(),
+      data: data.raw,
     };
   }
 }
