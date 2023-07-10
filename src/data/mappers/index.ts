@@ -1,5 +1,7 @@
 export * from './action.mapper';
 export * from './asset.mapper';
+export * from './action.mapper';
+export * from './asset.mapper';
 export * from './bytes.mapper';
 export * from './extended-asset.mapper';
 export * from './extended-symbol.mapper';

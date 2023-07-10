@@ -1,5 +1,6 @@
 export * from './action.dto';
 export * from './asset.dto';
+export * from './bytes.dto';
 export * from './extended-asset.dto';
 export * from './extended-symbol.dto';
 export * from './extension.dto';
