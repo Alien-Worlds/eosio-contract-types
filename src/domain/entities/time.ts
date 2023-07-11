@@ -3,6 +3,10 @@ export class TimePoint {
     return new TimePoint(new Date(str));
   }
 
+  public static getDefault(): TimePoint {
+    return new TimePoint(new Date());
+  }
+
   constructor(public readonly date: Date) {}
 
   public toJSON(): { date: string } {
@@ -14,6 +18,10 @@ export class TimePoint {
 export class TimePointSec {
   public static create(str: string): TimePoint {
     return new TimePointSec(new Date(str));
+  }
+
+  public static getDefault(): TimePointSec {
+    return new TimePointSec(new Date());
   }
 
   constructor(public readonly date: Date) {}

@@ -12,6 +12,10 @@ export class PermissionLevel implements Entity {
     return entity;
   }
 
+  public static getDefault(): PermissionLevel {
+    return new PermissionLevel('', '');
+  }
+
   constructor(public readonly actor: string, public readonly permission: string) {}
 
   public rest?: UnknownObject;

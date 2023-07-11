@@ -9,6 +9,10 @@ export class Extension implements Entity {
     return entity;
   }
 
+  public static getDefault(): Extension {
+    return new Extension(0, '');
+  }
+
   public rest?: UnknownObject;
 
   constructor(public readonly type: number, public readonly data: string) {}

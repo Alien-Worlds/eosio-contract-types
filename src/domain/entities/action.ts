@@ -13,6 +13,10 @@ export class Action implements Entity {
     return new Action(account, name, authorization, data);
   }
 
+  public static getDefault(): Action {
+    return new Action('', '', PermissionLevel.getDefault(), Bytes.getDefault());
+  }
+
   public rest?: UnknownObject;
 
   constructor(

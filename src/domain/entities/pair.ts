@@ -12,7 +12,11 @@ export class Pair<KeyType = string, ValueType = string> {
     return new Pair(key, value, first, second);
   }
 
-  protected constructor(
+  public static getDefault(): Pair {
+    return new Pair('', '', '', '');
+  }
+
+  constructor(
     public readonly key: KeyType,
     public readonly value: ValueType,
     public readonly first: KeyType,

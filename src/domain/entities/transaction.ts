@@ -28,6 +28,10 @@ export class Transaction implements Entity {
     );
   }
 
+  public static getDefault(): Transaction {
+    return new Transaction(new Date(), 0n, 0, 0, 0, 0, [], [], []);
+  }
+
   public rest?: UnknownObject;
 
   constructor(
