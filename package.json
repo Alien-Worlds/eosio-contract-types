@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@alien-worlds/api-core": "^0.0.158",
-    "@alien-worlds/storage-mongodb": "^0.0.27",
+    "@alien-worlds/storage-mongodb": "^0.0.28",
     "typescript": "^4.9.5"
   }
 }

@@ -5,9 +5,10 @@ import {
   PermissionLevelMongoModel,
   PermissionLevelRawModel,
 } from '../dtos/permission-level.dto';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class PermissionLevelMongoMapper extends MapperImpl<
+export class PermissionLevelMongoMapper extends MongoMapper<
   PermissionLevel,
   PermissionLevelMongoModel
 > {

@@ -4,9 +4,10 @@ import { Asset } from '../../domain/entities';
 import { ExtendedAsset } from '../../domain/entities/extended-asset';
 import { ExtendedAssetMongoModel, ExtendedAssetRawModel } from '../dtos';
 import { AssetMongoMapper, AssetRawMapper } from './asset.mapper';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class ExtendedAssetMongoMapper extends MapperImpl<
+export class ExtendedAssetMongoMapper extends MongoMapper<
   ExtendedAsset,
   ExtendedAssetMongoModel
 > {

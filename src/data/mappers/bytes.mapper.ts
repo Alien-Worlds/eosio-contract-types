@@ -1,11 +1,11 @@
 import { MapperImpl } from '@alien-worlds/api-core';
 
 import { Bytes } from '../../domain/entities';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { BytesMongoModel, BytesRawModel } from '../dtos/bytes.dto';
 
 // Mongo Mappers
-export class BytesMongoMapper extends MapperImpl<Bytes, BytesMongoModel> {
+export class BytesMongoMapper extends MongoMapper<Bytes, BytesMongoModel> {
   public toEntity(mongoModel: BytesMongoModel): Bytes {
     return Bytes.create(mongoModel.toString());
   }

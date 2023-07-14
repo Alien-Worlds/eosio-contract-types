@@ -5,9 +5,10 @@ import { Symbol } from '../../domain/entities';
 import { ExtendedSymbol } from '../../domain/entities/extended-symbol';
 import { ExtendedSymbolMongoModel, ExtendedSymbolRawModel } from '../dtos';
 import { SymbolMongoMapper, SymbolRawMapper } from './symbol.mapper';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class ExtendedSymbolMongoMapper extends MapperImpl<
+export class ExtendedSymbolMongoMapper extends MongoMapper<
   ExtendedSymbol,
   ExtendedSymbolMongoModel
 > {

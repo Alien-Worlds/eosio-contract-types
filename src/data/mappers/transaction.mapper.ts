@@ -2,12 +2,12 @@ import { MapperImpl, parseToBigInt } from '@alien-worlds/api-core';
 
 import { Action, Extension, Transaction } from '../../domain/entities';
 import { TransactionMongoModel, TransactionRawModel } from '../dtos/transaction.dto';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { ActionMongoMapper, ActionRawMapper } from './action.mapper';
 import { ExtensionMongoMapper, ExtensionRawMapper } from './extension.mapper';
 
 // Mongo Mappers
-export class TransactionMongoMapper extends MapperImpl<
+export class TransactionMongoMapper extends MongoMapper<
   Transaction,
   TransactionMongoModel
 > {

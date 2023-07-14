@@ -11,10 +11,10 @@
     node-fetch "2.6.6"
     reflect-metadata "^0.1.13"
 
-"@alien-worlds/storage-mongodb@^0.0.27":
-  version "0.0.27"
-  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.27/a2669e7635b69e0308d9d7aa7e9136a8efd4501a#a2669e7635b69e0308d9d7aa7e9136a8efd4501a"
-  integrity sha512-+AWQPt5pXB1pAg8/z/N09rhrfSZgxQXzU+co1HdpF0SeBId/QYu5FqLUVGMQu3pDwXxPcnQIk/s/l9yeJPH9Jg==
+"@alien-worlds/storage-mongodb@^0.0.28":
+  version "0.0.28"
+  resolved "https://npm.pkg.github.com/download/@alien-worlds/storage-mongodb/0.0.28/e3000595309890caeda9c6feb1861b316123b37c#e3000595309890caeda9c6feb1861b316123b37c"
+  integrity sha512-uh266auXFb0ye/XnKEvmacm/DakrBcv0i4ZwvjmfGs/8isUt75jqKLP/hW9fW/+npRSdnkLJ1EI+qkQ2fXclPg==
   dependencies:
     "@alien-worlds/api-core" "^0.0.158"
     mongodb "4.9.1"

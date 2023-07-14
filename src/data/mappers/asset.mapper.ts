@@ -2,9 +2,10 @@ import { MapperImpl } from '@alien-worlds/api-core';
 
 import { Asset } from '../../domain/entities';
 import { AssetMongoModel, AssetRawModel } from '../dtos/asset.dto';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class AssetMongoMapper extends MapperImpl<Asset, AssetMongoModel> {
+export class AssetMongoMapper extends MongoMapper<Asset, AssetMongoModel> {
   constructor() {
     super();
 

@@ -2,9 +2,10 @@ import { MapperImpl } from '@alien-worlds/api-core';
 
 import { Extension } from '../../domain/entities';
 import { ExtensionMongoModel, ExtensionRawModel } from '../dtos/extension.dto';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class ExtensionMongoMapper extends MapperImpl<Extension, ExtensionMongoModel> {
+export class ExtensionMongoMapper extends MongoMapper<Extension, ExtensionMongoModel> {
   constructor() {
     super();
 

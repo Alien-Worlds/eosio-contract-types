@@ -3,9 +3,10 @@ import { SymbolMongoModel, SymbolRawModel } from '../dtos/symbol.dto';
 
 import { MapperImpl } from '@alien-worlds/api-core';
 import { Symbol } from '../../domain/entities';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class SymbolMongoMapper extends MapperImpl<Symbol, SymbolMongoModel> {
+export class SymbolMongoMapper extends MongoMapper<Symbol, SymbolMongoModel> {
   constructor() {
     super();
 

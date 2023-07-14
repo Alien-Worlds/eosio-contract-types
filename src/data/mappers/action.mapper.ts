@@ -7,9 +7,10 @@ import {
   PermissionLevelRawMapper,
 } from './permission-level.mapper';
 import { BytesMongoMapper, BytesRawMapper } from './bytes.mapper';
+import { MongoMapper } from '@alien-worlds/storage-mongodb';
 
 // Mongo Mappers
-export class ActionMongoMapper extends MapperImpl<Action, ActionMongoModel> {
+export class ActionMongoMapper extends MongoMapper<Action, ActionMongoModel> {
   private permissionLevelMapper = new PermissionLevelMongoMapper();
   private bytesMapper = new BytesMongoMapper();
 
